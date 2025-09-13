@@ -141,8 +141,6 @@ src/test/java/
 
 К каждому тесту в отчете прилагается видео прогона.
 <p align="center">
-<video width="800" controls>
-<img title="Selenoid Video" src="images/VideoTest.gif" width="550" height="350"  alt="video">   
-</video>
+<img title="Selenoid Video" src="images/VideoFromJenkinsTest.gif" width="550" height="350"  alt="video"> 
 </p>
 
