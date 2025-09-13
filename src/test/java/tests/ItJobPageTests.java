@@ -17,7 +17,6 @@ public class ItJobPageTests extends BaseTest {
 
     @BeforeEach
     void beforeEachTest() {
-        open("/it");
         clearBrowserCookies();
         clearBrowserLocalStorage();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
