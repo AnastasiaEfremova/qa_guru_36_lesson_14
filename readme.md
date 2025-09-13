@@ -117,21 +117,18 @@ src/test/java/
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="images/logo/Allure.png"> Интеграция с TestOps
-### Overview
 [Интеграция с TestOps](https://allure.autotests.cloud/project/4910/dashboards)
 <p align="center">
     <img title="Allure Overview" src="images/TestOpsDashboards.png">
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="images/logo/Jira.png"> Интеграция с Jira
-### Overview
 [Интеграция с Jira](https://jira.autotests.cloud/browse/HOMEWORK-1497)
 <p align="center">
     <img title="Jira Integration" src="images/JiraTask.png">
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="images/logo/Telegram.png"> Телеграмм-бот с уведомлениями о результатах тестов
-### Overview
 <p align="center">
 <img width="70%" title="Telegram Notifications" src="images/TelegramBot.png">
 </p>
