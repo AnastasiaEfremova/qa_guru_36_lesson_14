@@ -64,21 +64,22 @@ task all_tests(type: Test) {
     useJUnitPlatform {
         includeTags("regress")
     }
+}
 
 task cookies_tests(type: Test) {
     useJUnitPlatform {
         includeTags("cookie")
     }
+}
 
-    task city_tests(type: Test) {
-        useJUnitPlatform {
-            includeTags("city")
-        }
+task city_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("city")
     }
+}
 
-    task integration_tests(type: Test) {
-        useJUnitPlatform {
-            includeTags("integration")
-        }
+task integration_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("integration")
     }
 }
