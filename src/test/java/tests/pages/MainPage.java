@@ -3,8 +3,10 @@ package tests.pages;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.junit.jupiter.api.AfterEach;
 import tests.components.CityConfirmComponent;
 import tests.components.CookieNoticeComponent;
+import tests.helpers.Attach;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -15,6 +17,16 @@ public class MainPage {
     CityConfirmComponent cityConfirmComponent = new CityConfirmComponent();
 
     private final SelenideElement locationButton = $(".LocationButton_locationButton_text__UFX5G");
+
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
+
+        closeWebDriver();
+    }
 
     @Step("Открыть главную страницу MTS IT")
     public MainPage openMainPage() {
