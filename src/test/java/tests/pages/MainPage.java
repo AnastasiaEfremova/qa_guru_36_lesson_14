@@ -18,16 +18,6 @@ public class MainPage {
 
     private final SelenideElement locationButton = $(".LocationButton_locationButton_text__UFX5G");
 
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-
-        closeWebDriver();
-    }
-
     @Step("Открыть главную страницу MTS IT")
     public MainPage openMainPage() {
         open("/it");

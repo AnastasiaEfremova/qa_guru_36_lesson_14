@@ -3,10 +3,10 @@ package tests;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
+import tests.helpers.Attach;
 import tests.pages.MainPage;
 
-import static com.codeborne.selenide.Selenide.clearBrowserCookies;
-import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
+import static com.codeborne.selenide.Selenide.*;
 
 @DisplayName("Тестирование главной страницы MTS IT")
 public class ItJobPageTests extends BaseTest {
@@ -17,9 +17,19 @@ public class ItJobPageTests extends BaseTest {
 
     @BeforeEach
     void beforeEachTest() {
+        open("/it");
         clearBrowserCookies();
         clearBrowserLocalStorage();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
+
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
+        closeWebDriver();
     }
 
     @Test

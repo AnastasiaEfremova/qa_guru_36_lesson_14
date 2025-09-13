@@ -11,11 +11,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
 
-    @BeforeEach
-    void openItPage() {
-        open("/it");
-    }
-
     @BeforeAll
     static void setupConfig() {
 
