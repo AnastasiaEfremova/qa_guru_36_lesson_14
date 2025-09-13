@@ -23,7 +23,7 @@
 - [Интеграция с TestOps](#-интеграция-с-testops)
 - [Интеграция с Jira](#-интеграция-с-jira)
 - [Телеграмм-бот с уведомлениями о результатах тестов](#-телеграмм-бот-с-уведомлениями-о-результатах-тестов)
-- [Видео пример запуска тестов в Selenoid](#-видео-пример-запуска-тестов-в-selenoid)
+- [Пример записи видео при выполнении тестов в Selenoid](#-пример-записи-видео-при-выполнении-тестов-в-selenoid)
 
 ---
 
@@ -133,9 +133,7 @@ src/test/java/
 <img width="70%" title="Telegram Notifications" src="images/TelegramBot.png">
 </p>
 
-### <img width="4%" style="vertical-align:middle" title="Selenoid" src="images/logo/Selenoid.png"> Видео пример запуска тестов в Selenoid
-
-К каждому тесту в отчете прилагается видео прогона.
+### <img width="4%" style="vertical-align:middle" title="Selenoid" src="images/logo/Selenoid.png"> Пример записи видео при выполнении тестов в Selenoid
 <p align="center">
 <img title="Selenoid Video" src="images/VideoFromJenkinsTest.gif" width="550" height="350"  alt="video"> 
 </p>
