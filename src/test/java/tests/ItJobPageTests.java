@@ -35,6 +35,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Проверка отображения cookie баннера")
     @Tag("cookie")
+    @Tag("regress")
     void shouldDisplayCookieBanner() {
         mainPage.verifyAllCookieBannerElements();
     }
@@ -42,6 +43,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Проверка текста кнопок cookie баннера")
     @Tag("cookie")
+    @Tag("regress")
     void shouldHaveCorrectCookieButtonsText() {
         mainPage.verifyCookieButtonsText(acceptCookieText, configureCookieText);
     }
@@ -49,6 +51,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Проверка кликабельности кнопок cookie")
     @Tag("cookie")
+    @Tag("regress")
     void shouldHaveClickableCookieButtons() {
         mainPage.verifyCookieButtonsClickable();
     }
@@ -56,6 +59,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Успешное принятие cookies")
     @Tag("cookie")
+    @Tag("regress")
     void shouldAcceptCookiesSuccessfully() {
         mainPage.acceptCookies()
                 .verifyCookieBannerNotVisible();
@@ -64,6 +68,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Проверка возможности настроить cookies")
     @Tag("cookie")
+    @Tag("regress")
     void shouldConfigureCookies() {
         mainPage.configureCookies()
                 .verifyCookieBannerNotVisible();
@@ -72,6 +77,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Проверка поведения при повторном открытии страницы после принятия cookies")
     @Tag("cookie")
+    @Tag("regress")
     void shouldNotShowCookieBannerAfterRefresh() {
         mainPage.acceptCookies()
                 .refreshPage()
@@ -81,6 +87,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Проверка отображения баннера выбора города")
     @Tag("city")
+    @Tag("regress")
     void shouldDisplayCityBanner() {
         mainPage.acceptCookies()
                 .verifyAllCityBannerElements();
@@ -89,6 +96,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Подтверждение города по умолчанию")
     @Tag("city")
+    @Tag("regress")
     void shouldAcceptDefaultCityMoscow() {
         mainPage.acceptCookies()
                 .acceptDefaultCity()
@@ -98,6 +106,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Выбор города")
     @Tag("city")
+    @Tag("regress")
     void shouldChooseKazanCity() {
         mainPage.acceptCookies()
                 .chooseCity("Казань")
@@ -107,6 +116,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Проверка кликабельности кнопок выбора города")
     @Tag("city")
+    @Tag("regress")
     void shouldHaveClickableCityButtons() {
         mainPage.acceptCookies()
                 .verifyCityButtonsClickable();
@@ -115,6 +125,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Проверка сохранения выбора города после перезагрузки")
     @Tag("city")
+    @Tag("regress")
     void shouldRememberCityChoiceAfterRefresh() {
         mainPage.acceptCookies()
                 .chooseCity("Казань")
@@ -125,6 +136,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Принятие cookies и подтверждение города по дефолту")
     @Tag("integration")
+    @Tag("regress")
     void fullFlowCookiesAndCity() {
         mainPage.verifyAllCookieBannerElements()
                 .acceptCookies()
@@ -137,6 +149,7 @@ public class ItJobPageTests extends BaseTest {
     @Test
     @DisplayName("Проверка возможности настроить cookies + выбор другого города")
     @Tag("integration")
+    @Tag("regress")
     void configureCookiesAndChooseCity() {
         mainPage.configureCookies()
                 .verifyCookieBannerNotVisible()
