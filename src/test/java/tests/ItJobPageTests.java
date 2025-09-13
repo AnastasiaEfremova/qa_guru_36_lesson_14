@@ -4,19 +4,20 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import tests.helpers.Attach;
-import tests.pages.MainPage;
+import tests.pages.ItJobPage;
 
 import static com.codeborne.selenide.Selenide.*;
 
 @DisplayName("Тестирование главной страницы MTS IT")
 public class ItJobPageTests extends BaseTest {
 
-    MainPage mainPage = new MainPage();
+    ItJobPage mainPage = new ItJobPage();
     String acceptCookieText = "принять cookie";
     String configureCookieText = "настроить cookie";
 
     @BeforeEach
     void beforeEachTest() {
+        mainPage.openMainPage();
         clearBrowserCookies();
         clearBrowserLocalStorage();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -35,32 +36,28 @@ public class ItJobPageTests extends BaseTest {
     @DisplayName("Проверка отображения cookie баннера")
     @Tag("cookie")
     void shouldDisplayCookieBanner() {
-        mainPage.openMainPage()
-                .verifyAllCookieBannerElements();
+        mainPage.verifyAllCookieBannerElements();
     }
 
     @Test
     @DisplayName("Проверка текста кнопок cookie баннера")
     @Tag("cookie")
     void shouldHaveCorrectCookieButtonsText() {
-        mainPage.openMainPage()
-                .verifyCookieButtonsText(acceptCookieText, configureCookieText);
+        mainPage.verifyCookieButtonsText(acceptCookieText, configureCookieText);
     }
 
     @Test
     @DisplayName("Проверка кликабельности кнопок cookie")
     @Tag("cookie")
     void shouldHaveClickableCookieButtons() {
-        mainPage.openMainPage()
-                .verifyCookieButtonsClickable();
+        mainPage.verifyCookieButtonsClickable();
     }
 
     @Test
     @DisplayName("Успешное принятие cookies")
     @Tag("cookie")
     void shouldAcceptCookiesSuccessfully() {
-        mainPage.openMainPage()
-                .acceptCookies()
+        mainPage.acceptCookies()
                 .verifyCookieBannerNotVisible();
     }
 
@@ -68,8 +65,7 @@ public class ItJobPageTests extends BaseTest {
     @DisplayName("Проверка возможности настроить cookies")
     @Tag("cookie")
     void shouldConfigureCookies() {
-        mainPage.openMainPage()
-                .configureCookies()
+        mainPage.configureCookies()
                 .verifyCookieBannerNotVisible();
     }
 
@@ -77,8 +73,7 @@ public class ItJobPageTests extends BaseTest {
     @DisplayName("Проверка поведения при повторном открытии страницы после принятия cookies")
     @Tag("cookie")
     void shouldNotShowCookieBannerAfterRefresh() {
-        mainPage.openMainPage()
-                .acceptCookies()
+        mainPage.acceptCookies()
                 .refreshPage()
                 .verifyCookieBannerNotVisible();
     }
@@ -87,8 +82,7 @@ public class ItJobPageTests extends BaseTest {
     @DisplayName("Проверка отображения баннера выбора города")
     @Tag("city")
     void shouldDisplayCityBanner() {
-        mainPage.openMainPage()
-                .acceptCookies()
+        mainPage.acceptCookies()
                 .verifyAllCityBannerElements();
     }
 
@@ -96,8 +90,7 @@ public class ItJobPageTests extends BaseTest {
     @DisplayName("Подтверждение города по умолчанию")
     @Tag("city")
     void shouldAcceptDefaultCityMoscow() {
-        mainPage.openMainPage()
-                .acceptCookies()
+        mainPage.acceptCookies()
                 .acceptDefaultCity()
                 .verifyCityInHeader("Москва");
     }
@@ -106,8 +99,7 @@ public class ItJobPageTests extends BaseTest {
     @DisplayName("Выбор города")
     @Tag("city")
     void shouldChooseKazanCity() {
-        mainPage.openMainPage()
-                .acceptCookies()
+        mainPage.acceptCookies()
                 .chooseCity("Казань")
                 .verifyCityInHeader("Казань");
     }
@@ -116,8 +108,7 @@ public class ItJobPageTests extends BaseTest {
     @DisplayName("Проверка кликабельности кнопок выбора города")
     @Tag("city")
     void shouldHaveClickableCityButtons() {
-        mainPage.openMainPage()
-                .acceptCookies()
+        mainPage.acceptCookies()
                 .verifyCityButtonsClickable();
     }
 
@@ -125,8 +116,7 @@ public class ItJobPageTests extends BaseTest {
     @DisplayName("Проверка сохранения выбора города после перезагрузки")
     @Tag("city")
     void shouldRememberCityChoiceAfterRefresh() {
-        mainPage.openMainPage()
-                .acceptCookies()
+        mainPage.acceptCookies()
                 .chooseCity("Казань")
                 .refreshPage()
                 .verifyCityInHeader("Казань");
@@ -136,8 +126,7 @@ public class ItJobPageTests extends BaseTest {
     @DisplayName("Принятие cookies и подтверждение города по дефолту")
     @Tag("integration")
     void fullFlowCookiesAndCity() {
-        mainPage.openMainPage()
-                .verifyAllCookieBannerElements()
+        mainPage.verifyAllCookieBannerElements()
                 .acceptCookies()
                 .verifyCookieBannerNotVisible()
                 .verifyAllCityBannerElements()
@@ -149,8 +138,7 @@ public class ItJobPageTests extends BaseTest {
     @DisplayName("Проверка возможности настроить cookies + выбор другого города")
     @Tag("integration")
     void configureCookiesAndChooseCity() {
-        mainPage.openMainPage()
-                .configureCookies()
+        mainPage.configureCookies()
                 .verifyCookieBannerNotVisible()
                 .chooseCity("Казань")
                 .verifyCityInHeader("Казань");
