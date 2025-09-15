@@ -16,19 +16,12 @@ public class ItJobPage {
 
     private final SelenideElement locationButton = $(".LocationButton_locationButton_text__UFX5G");
 
-    @Step("Открыть главную страницу MTS IT")
-    public ItJobPage openMainPage() {
-        open("/it");
-        return this;
-    }
-
     @Step("Обновить страницу")
     public ItJobPage refreshPage() {
         Selenide.refresh();
         return this;
     }
 
-    // Cookie методы
     @Step("Принять cookies")
     public ItJobPage acceptCookies() {
         cookieNoticeComponent.acceptCookies();

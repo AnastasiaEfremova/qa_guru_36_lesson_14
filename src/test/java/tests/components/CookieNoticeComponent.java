@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class CookieNoticeComponent {
 
-    private final SelenideElement cookieContainer = $(".CookieNotice_cookieNotice__actionsContainer__xDf0U");
+    private final SelenideElement cookieContainer = $(".CookieNotice_cookieNotice__container__dNggg");
     private final SelenideElement acceptButton = $(byText("принять cookie"));
     private final SelenideElement configureButton = $(byText("настроить cookie"));
 

@@ -1,13 +1,10 @@
 package tests;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.*;
-import tests.helpers.Attach;
 import tests.pages.ItJobPage;
 
-import static com.codeborne.selenide.Selenide.*;
-
+@Tag("regress")
 @DisplayName("Тестирование главной страницы MTS IT")
 public class ItJobPageTests extends BaseTest {
 
@@ -15,118 +12,101 @@ public class ItJobPageTests extends BaseTest {
     String acceptCookieText = "принять cookie";
     String configureCookieText = "настроить cookie";
 
-    @BeforeEach
-    void beforeEachTest() {
-        mainPage.openMainPage();
-        clearBrowserCookies();
-        clearBrowserLocalStorage();
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
-
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-        closeWebDriver();
-    }
-
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка отображения cookie баннера")
     @Tag("cookie")
-    @Tag("regress")
-    void shouldDisplayCookieBanner() {
+    void shouldDisplayCookieBannerTest() {
         mainPage.verifyAllCookieBannerElements();
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка текста кнопок cookie баннера")
     @Tag("cookie")
-    @Tag("regress")
-    void shouldHaveCorrectCookieButtonsText() {
+    void shouldHaveCorrectCookieButtonsTextTest() {
         mainPage.verifyCookieButtonsText(acceptCookieText, configureCookieText);
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка кликабельности кнопок cookie")
     @Tag("cookie")
-    @Tag("regress")
-    void shouldHaveClickableCookieButtons() {
+    void shouldHaveClickableCookieButtonsTest() {
         mainPage.verifyCookieButtonsClickable();
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Успешное принятие cookies")
     @Tag("cookie")
-    @Tag("regress")
-    void shouldAcceptCookiesSuccessfully() {
+    void shouldAcceptCookiesSuccessfullyTest() {
         mainPage.acceptCookies()
                 .verifyCookieBannerNotVisible();
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка возможности настроить cookies")
     @Tag("cookie")
-    @Tag("regress")
-    void shouldConfigureCookies() {
+    void shouldConfigureCookiesTest() {
         mainPage.configureCookies()
                 .verifyCookieBannerNotVisible();
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка поведения при повторном открытии страницы после принятия cookies")
     @Tag("cookie")
-    @Tag("regress")
-    void shouldNotShowCookieBannerAfterRefresh() {
+    void shouldNotShowCookieBannerAfterRefreshTest() {
         mainPage.acceptCookies()
                 .refreshPage()
                 .verifyCookieBannerNotVisible();
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка отображения баннера выбора города")
     @Tag("city")
-    @Tag("regress")
-    void shouldDisplayCityBanner() {
+    void shouldDisplayCityBannerTest() {
         mainPage.acceptCookies()
                 .verifyAllCityBannerElements();
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Подтверждение города по умолчанию")
     @Tag("city")
-    @Tag("regress")
-    void shouldAcceptDefaultCityMoscow() {
+    void shouldAcceptDefaultCityMoscowTest() {
         mainPage.acceptCookies()
                 .acceptDefaultCity()
                 .verifyCityInHeader("Москва");
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Выбор города")
     @Tag("city")
-    @Tag("regress")
-    void shouldChooseKazanCity() {
+    void shouldChooseKazanCityTest() {
         mainPage.acceptCookies()
                 .chooseCity("Казань")
                 .verifyCityInHeader("Казань");
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка кликабельности кнопок выбора города")
     @Tag("city")
-    @Tag("regress")
-    void shouldHaveClickableCityButtons() {
+    void shouldHaveClickableCityButtonsTest() {
         mainPage.acceptCookies()
                 .verifyCityButtonsClickable();
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка сохранения выбора города после перезагрузки")
     @Tag("city")
-    @Tag("regress")
-    void shouldRememberCityChoiceAfterRefresh() {
+    void shouldRememberCityChoiceAfterRefreshTest() {
         mainPage.acceptCookies()
                 .chooseCity("Казань")
                 .refreshPage()
@@ -134,10 +114,10 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Принятие cookies и подтверждение города по дефолту")
     @Tag("integration")
-    @Tag("regress")
-    void fullFlowCookiesAndCity() {
+    void fullFlowCookiesAndCityTest() {
         mainPage.verifyAllCookieBannerElements()
                 .acceptCookies()
                 .verifyCookieBannerNotVisible()
@@ -147,10 +127,10 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
+    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка возможности настроить cookies + выбор другого города")
     @Tag("integration")
-    @Tag("regress")
-    void configureCookiesAndChooseCity() {
+    void configureCookiesAndChooseCityTest() {
         mainPage.configureCookies()
                 .verifyCookieBannerNotVisible()
                 .chooseCity("Казань")
