@@ -6,6 +6,7 @@ import tests.pages.ItJobPage;
 
 @Tag("regress")
 @DisplayName("Тестирование главной страницы MTS IT")
+@Owner("Ефремова Анастасия")
 public class ItJobPageTests extends BaseTest {
 
     ItJobPage mainPage = new ItJobPage();
@@ -13,7 +14,6 @@ public class ItJobPageTests extends BaseTest {
     String configureCookieText = "настроить cookie";
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка отображения cookie баннера")
     @Tag("cookie")
     void shouldDisplayCookieBannerTest() {
@@ -21,7 +21,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка текста кнопок cookie баннера")
     @Tag("cookie")
     void shouldHaveCorrectCookieButtonsTextTest() {
@@ -29,7 +28,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка кликабельности кнопок cookie")
     @Tag("cookie")
     void shouldHaveClickableCookieButtonsTest() {
@@ -37,7 +35,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Успешное принятие cookies")
     @Tag("cookie")
     void shouldAcceptCookiesSuccessfullyTest() {
@@ -46,7 +43,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка возможности настроить cookies")
     @Tag("cookie")
     void shouldConfigureCookiesTest() {
@@ -55,7 +51,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка поведения при повторном открытии страницы после принятия cookies")
     @Tag("cookie")
     void shouldNotShowCookieBannerAfterRefreshTest() {
@@ -65,7 +60,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка отображения баннера выбора города")
     @Tag("city")
     void shouldDisplayCityBannerTest() {
@@ -74,7 +68,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Подтверждение города по умолчанию")
     @Tag("city")
     void shouldAcceptDefaultCityMoscowTest() {
@@ -84,7 +77,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Выбор города")
     @Tag("city")
     void shouldChooseKazanCityTest() {
@@ -94,7 +86,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка кликабельности кнопок выбора города")
     @Tag("city")
     void shouldHaveClickableCityButtonsTest() {
@@ -103,7 +94,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка сохранения выбора города после перезагрузки")
     @Tag("city")
     void shouldRememberCityChoiceAfterRefreshTest() {
@@ -114,7 +104,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Принятие cookies и подтверждение города по дефолту")
     @Tag("integration")
     void fullFlowCookiesAndCityTest() {
@@ -127,7 +116,6 @@ public class ItJobPageTests extends BaseTest {
     }
 
     @Test
-    @Owner("Ефремова Анастасия")
     @DisplayName("Проверка возможности настроить cookies + выбор другого города")
     @Tag("integration")
     void configureCookiesAndChooseCityTest() {
