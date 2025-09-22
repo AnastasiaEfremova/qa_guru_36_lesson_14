@@ -1,9 +1,12 @@
 package tests.helpers;
 
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,10 +33,26 @@ public class Attach {
     }
 
     public static void browserConsoleLogs() {
-        attachAsText(
-                "Browser console logs",
-                String.join("\n", Selenide.getWebDriverLogs(BROWSER))
-        );
+        // Проверяем тип браузера перед получением логов
+        if (WebDriverRunner.getWebDriver() instanceof ChromeDriver) {
+            // Логи доступны только для Chrome
+            attachAsText(
+                    "Browser console logs",
+                    String.join("\n", Selenide.getWebDriverLogs(BROWSER))
+            );
+        } else if (WebDriverRunner.getWebDriver() instanceof FirefoxDriver) {
+            // Для Firefox возвращаем сообщение о неподдержке
+            attachAsText(
+                    "Browser console logs",
+                    "Console logs are not supported for Firefox browser"
+            );
+        } else {
+            // Для других браузеров
+            attachAsText(
+                    "Browser console logs",
+                    "Console logs are not available for this browser type"
+            );
+        }
     }
 
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
